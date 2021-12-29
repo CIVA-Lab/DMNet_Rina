@@ -1,0 +1,94 @@
+model_name: hrnet
+
+#model_path: '../models_gtst/distmask_hrnet_final.pth'
+model_path: '../../wdata/ctc/all/center/GT+ST/hrnet_final.pth'
+train: true
+infer: false
+
+pretrained: false
+pretrained_rina: True
+
+nn_framework: torch
+batch_size: 4
+
+data_specs:
+  width: 512
+  height: 512
+  dtype:
+  image_type: zscore
+  rescale: false
+  rescale_minima: auto
+  rescale_maxima: auto
+  channels: 3
+  label_type: mask
+  is_categorical: false
+  mask_channels: 1
+  val_holdout_frac:
+  data_workers: 4
+
+
+
+training_data_names: '../data_trainlist/2Dlist_train_HSCMuSC.npy'
+validation_data_names: '../data_trainlist/2Dlist_val_HSCMuSC.npy'
+
+inference_data_csv:
+
+training_augmentation:
+  augmentations:
+    HorizontalFlip:
+      p: 0.5
+    RandomRotate90:
+      p: 0.5
+    #RandomScale:
+    #  scale_limit: [0.8,1.5]
+    RandomCrop:
+      height: 256
+      width: 256
+      p: 1.0
+  p: 1.0
+  shuffle: true
+validation_augmentation:
+  augmentations:
+    CenterCrop:
+      height: 256
+      width: 256
+      p: 1.0
+  p: 1.0
+inference_augmentation:
+  augmentations:
+  p: 1.0
+training:
+  epochs: 300
+  steps_per_epoch:
+  optimizer: Adam
+  lr: 1e-4
+  opt_args:
+  loss:
+    rinabcewithlogits:
+    jaccard:
+  loss_weights:
+    rinabcewithlogits: 100
+    jaccard: 2.5
+  metrics:
+    training:
+    validation:
+  checkpoint_frequency: 10
+  callbacks:
+    early_stopping:
+        patience: 24
+    model_checkpoint:
+      filepath: '../../wdata/ctc/'
+      monitor: val_loss
+    lr_schedule:
+      schedule_type: arbitrary
+      schedule_dict:
+        milestones:
+          - 200
+        gamma: 0.1
+  model_dest_path: '../../wdata/ctc/'
+  verbose: true
+
+inference:
+  window_step_size_x:
+  window_step_size_y:
+  output_dir:

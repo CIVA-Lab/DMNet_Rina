@@ -1,0 +1,10 @@
+python ../main_s2_78_3D.py ../Fluo-N3DH-CE 01 ../Fluo-N3DH-CE/01_RES-allGT+ST Fluo-N3DH-CE allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-N3DH-CE 02 ../Fluo-N3DH-CE/02_RES-allGT+ST Fluo-N3DH-CE allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-N3DH-CHO 01 ../Fluo-N3DH-CHO/01_RES-allGT+ST Fluo-N3DH-CHO allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-N3DH-CHO 02 ../Fluo-N3DH-CHO/02_RES-allGT+ST Fluo-N3DH-CHO allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-C3DH-A549 01 ../Fluo-C3DH-A549/01_RES-allGT+ST Fluo-C3DH-A549 allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-C3DH-A549 02 ../Fluo-C3DH-A549/02_RES-allGT+ST Fluo-C3DH-A549 allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-C3DH-H157 01 ../Fluo-C3DH-H157/01_RES-allGT+ST Fluo-C3DH-H157 allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-C3DH-H157 02 ../Fluo-C3DH-H157/02_RES-allGT+ST Fluo-C3DH-H157 allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-C3DL-MDA231 01 ../Fluo-C3DL-MDA231/01_RES-allGT+ST Fluo-C3DL-MDA231 allGT+ST 1
+python ../main_s2_78_3D.py ../Fluo-C3DL-MDA231 02 ../Fluo-C3DL-MDA231/02_RES-allGT+ST Fluo-C3DL-MDA231 allGT+ST 1
