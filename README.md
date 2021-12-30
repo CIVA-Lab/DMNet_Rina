@@ -29,6 +29,8 @@ conda activate cell
 ## Training
 1> Download the pretrained HRNet on imagenet from their website.
 
+cd training_codes
+
 mkdir models_imagenet
 
 https://github.com/HRNet/HRNet-Image-Classification/
@@ -36,13 +38,16 @@ https://github.com/HRNet/HRNet-Image-Classification/
 download the HRNet-W32-C model and put the model in models_imagenet
 
 2> For six settings in "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST":
-cd training_codes
+
+
 cd generate_bash
+
 bash allGT.sh
 bash allST.sh
 bash allGT+ST.sh
 
 For each dataset configuration training,
+
 bash $dataset.sh
 
 ## Testing
