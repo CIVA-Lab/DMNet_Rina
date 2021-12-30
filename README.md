@@ -1,8 +1,7 @@
 # Author
 Rina Bao (ctc682)
 rinabao@mail.missouri.edu
-The codes contain the implementations of our below paper, please cite our paper when
-you are using the codes.
+The codes contain the implementations of our below paper, please cite our paper when you are using the codes.
 
 @inproceedings{bao2021dmnet,
   title={DMNet: Dual-Stream Marker Guided Deep Network for Dense Cell Segmentation and Lineage Tracking},
@@ -18,6 +17,7 @@ This codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge secondar
 ## Setting up environment
 
 Using Anaconda 3 (or miniconda3) on linux, run the following:
+
 The Anaconda environment was tested on Linux with CUDA 10.2.
 
 ```shell
@@ -28,8 +28,11 @@ conda activate cell
 
 ## Training
 1> Download the pretrained HRNet on imagenet from their website.
+
 mkdir models_imagenet
+
 https://github.com/HRNet/HRNet-Image-Classification/
+
 download the HRNet-W32-C model and put the model in models_imagenet
 
 2> For six settings in "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST":
@@ -43,7 +46,9 @@ For each dataset configuration training,
 bash $dataset.sh
 
 ## Testing
+
 cd inference_codes
+
 Running all bash files for testing
 
 
