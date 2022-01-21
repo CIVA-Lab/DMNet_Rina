@@ -16,7 +16,7 @@ This codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge secondar
 
 ## Clone this GitHub repository
 
-```
+```shell
 git clone https://github.com/CIVA-Lab/DMNet_Rina.git
 ```
 
@@ -37,7 +37,7 @@ conda activate cell
  
 Download the pretrained HRNet-W32-C model on imagenet from their website (https://github.com/HRNet/HRNet-Image-Classification/) and place them in the folder `models_imagenet`. Use the following code to create the folder:
 
-```
+```shell
 cd training_codes
 mkdir models_imagenet
 ```
@@ -46,7 +46,7 @@ mkdir models_imagenet
 ### Training on all the datasets from the Cell Tracking Challenge
 To run the training on all the datasets from the Cell Tracking Challenge, run the six settings "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST" using the `.bash`codes in the folder `generate_bash`:
 
-```
+```shell
 cd generate_bash
 bash allGT.sh
 bash allST.sh
@@ -56,7 +56,7 @@ bash allGT+ST.sh
 
 Use the specific name of the Cell Tracking Challenge dataset in the variable `dataset` in the following line:
 
-```
+```shell
 bash $dataset.sh
 ```
 
@@ -65,7 +65,7 @@ Each bash code runs a training `.py`file placed in the `training_codes` folder. 
 
 ## Testing
 
-```
+```shell
 cd inference_codes
 ```
 
