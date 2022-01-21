@@ -35,13 +35,24 @@ conda activate cell
 
 ## Training
  
+### Prepare datasets for training
+
+You cand download the training data in the Cell Tracking Challenge webpage http://celltrackingchallenge.net/2d-datasets/.
+Download any of the training datasets and place them in the folder `DMNet_Rina/Data/train`. For that, you will need to create the `Data`and `train` folder first.
+
+```shell
+mkdir "DMNet_Rina/Data"
+mkdir "DMNet_Rina/Data/train"
+```
+
+### Download the pretrained model
 Download the pretrained HRNet-W32-C model on imagenet from their website (https://github.com/HRNet/HRNet-Image-Classification/) and place them in the folder `models_imagenet`. Use the following code to create the folder:
 
 ```shell
 cd training_codes
 mkdir models_imagenet
 ```
-
+Once the dataset is placed there, it should look like `DMNet_Rina/Data/train/DIC-C2DH-HeLa`
 
 ### Training on all the datasets from the Cell Tracking Challenge
 To run the training on all the datasets from the Cell Tracking Challenge, run the six settings "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST" using the `.bash`codes in the folder `generate_bash`:
