@@ -34,14 +34,15 @@ conda activate cell
 
 
 ## Training
-1> Download the pretrained HRNet-W32-C model on imagenet from their website (https://github.com/HRNet/HRNet-Image-Classification/) and place them in the folder `models_imagenet`. Use the following code to create the folder:
+ 
+Download the pretrained HRNet-W32-C model on imagenet from their website (https://github.com/HRNet/HRNet-Image-Classification/) and place them in the folder `models_imagenet`. Use the following code to create the folder:
 
 ```
 cd training_codes
 mkdir models_imagenet
 ```
 
-2> 
+
 ### Training on all the datasets from the Cell Tracking Challenge
 To run the training on all the datasets from the Cell Tracking Challenge, run the six settings "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST" using the `.bash`codes in the folder `generate_bash`:
 
