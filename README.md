@@ -14,6 +14,12 @@ The codes contain the implementations of our below paper, please cite our paper 
 This codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge secondary track
 # Instructions
 
+## Clone this GitHub repository
+
+```
+git clone https://github.com/CIVA-Lab/DMNet_Rina.git
+```
+
 ## Setting up environment
 
 Using Anaconda 3 (or miniconda3) on linux, run the following:
@@ -21,38 +27,46 @@ Using Anaconda 3 (or miniconda3) on linux, run the following:
 The Anaconda environment was tested on Linux with CUDA 10.2.
 
 ```shell
+cd training_codes
 conda env create -f environment.yml
 conda activate cell
 ```
 
 
 ## Training
-1> Download the pretrained HRNet on imagenet from their website.
+1> Download the pretrained HRNet-W32-C model on imagenet from their website (https://github.com/HRNet/HRNet-Image-Classification/) and place them in the folder `models_imagenet`. Use the following code to create the folder:
 
+```
 cd training_codes
-
 mkdir models_imagenet
+```
 
-https://github.com/HRNet/HRNet-Image-Classification/
+2> 
+### Training on all the datasets from the Cell Tracking Challenge
+To run the training on all the datasets from the Cell Tracking Challenge, run the six settings "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST" using the `.bash`codes in the folder `generate_bash`:
 
-download the HRNet-W32-C model and put the model in models_imagenet
-
-2> For six settings in "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST":
-
-
+```
 cd generate_bash
-
 bash allGT.sh
 bash allST.sh
 bash allGT+ST.sh
+```
+### Training on a specific dataset of the Cell Tracking Challenge
 
-For each dataset configuration training,
+Use the specific name of the Cell Tracking Challenge dataset in the variable `dataset` in the following line:
 
+```
 bash $dataset.sh
+```
+
+### Chaning some training parameters:
+Each bash code runs a training `.py`file placed in the `training_codes` folder. The parameters for the training (epochs, batch size, learning rate etc.) are specified in the `yaml` files that you can find in the `yml` folder. Note that you will need to addapt the value of some of these parameters, such as the batch size, according to your hardware (GPU).
 
 ## Testing
 
+```
 cd inference_codes
+```
 
 Running all bash files for testing
 
