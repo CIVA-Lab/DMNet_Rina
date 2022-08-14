@@ -1,16 +1,19 @@
-# Author
-Rina Bao (ctc682)
-rinabao@mail.missouri.edu
-The codes contain the implementations of our below paper, please cite our paper when you are using the codes.
+# DMNet for Cell Segmentation, Detection and Tracking
+Accurate segmentation and tracking of cells in microscopy image sequences is extremely beneficial in clinical diagnostic applications and biomedical research. A continuing challenge is the segmentation of dense touching cells and deforming cells with indistinct boundaries,
+in low signal-to-noise-ratio images. In this paper, we present a dual-stream marker-guided network (DMNet) for segmentation of touching cells in microscopy videos of many cell types. DMNet uses an explicit cell markerdetection stream, with a separate mask-prediction stream
+using a distance map penalty function, which enables supervised training to focus attention on touching and nearby
+cells. For multi-object cell tracking we use M2Track tracking-by-detection approach with multi-step data association. Our M2Track with mask overlap includes short term track-to-cell association followed by track-to-track association to re-link tracklets with missing segmentation masks over a short sequence of frames. Our combined detection, segmentation and tracking algorithm has proven its potential on the IEEE ISBI 2021 6th Cell Tracking Challenge (CTC-6) where we achieved multiple top three rankings for diverse cell types.
 
-
-
-<p align = "center"
+<p align = "center">
     <img src="/paperimages/workflow.png" alt="DMNet"/>
     <em>Workflow of DMNet and M2Track.</em>
 </p>
 
 
+# Author
+Rina Bao (ctc682)
+rinabao@mail.missouri.edu
+The codes contain the implementations of our below paper, please cite our paper when you are using the codes.
 
 
 @inproceedings{bao2021dmnet,
