@@ -4,13 +4,12 @@ rinabao@mail.missouri.edu
 The codes contain the implementations of our below paper, please cite our paper when you are using the codes.
 
 
-#![Alt text](/paperimages/workflow.png "DMNet")
 
-<p>
-    <img src="/paperimages/workflow.png" alt>
-    <em>DMNet</em>
-</p>
 
+<figure>
+  <img src="/paperimages/workflow.png" alt="DMNet"/>
+  <figcaption>Workflow of DMNet and M2Track.</figcaption>
+</figure>
 
 
 
