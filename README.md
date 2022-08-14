@@ -5,11 +5,11 @@ The codes contain the implementations of our below paper, please cite our paper 
 
 
 
+<p align = "center"
+    <img src="/paperimages/workflow.png" alt="DMNet"/>
+    <em>Workflow of DMNet and M2Track.</em>
+</p>
 
-<figure>
-  <img src="/paperimages/workflow.png" alt="DMNet"/>
-  <figcaption>Workflow of DMNet and M2Track.</figcaption>
-</figure>
 
 
 
