@@ -3,6 +3,14 @@ Rina Bao (ctc682)
 rinabao@mail.missouri.edu
 The codes contain the implementations of our below paper, please cite our paper when you are using the codes.
 
+
+![Alt text](/paperimages/workflow.png "DMNet")
+
+
+
+
+
+
 @inproceedings{bao2021dmnet,
   title={DMNet: Dual-Stream Marker Guided Deep Network for Dense Cell Segmentation and Lineage Tracking},
   author={Bao, Rina and Al-Shakarji, Noor M and Bunyak, Filiz and Palaniappan, Kannappan},
@@ -11,7 +19,8 @@ The codes contain the implementations of our below paper, please cite our paper 
   year={2021}
 }
 
-This codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge secondary track
+This codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge
+
 # Instructions
 
 ## Setting up environment
@@ -58,4 +67,10 @@ Running all bash files for testing
 
 
 Thanks!
+
+
+## Acknowledgement
+
+
+
 
