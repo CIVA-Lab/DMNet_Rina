@@ -4,7 +4,7 @@ rinabao@mail.missouri.edu
 The codes contain the implementations of our below paper, please cite our paper when you are using the codes.
 
 
-![Alt text](/paperimages/workflow.png, "DMNet")
+![Alt text](/paperimages/workflow.png "DMNet")
 
 
 
