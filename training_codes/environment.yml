@@ -7,6 +7,7 @@ dependencies:
   - _libgcc_mutex=0.1=main
   - _openmp_mutex=4.5=1_gnu
   - blas=1.0=mkl
+  - ipykernel
   - boost-cpp=1.70.0=ha2d47e9_1
   - bzip2=1.0.8=h7b6447c_0
   - ca-certificates=2021.5.30=ha878542_0
@@ -137,7 +138,8 @@ dependencies:
     - networkx==2.5.1
     - numpy==1.19.5
     - oauthlib==3.1.1
-    - opencv-python-headless==4.5.2.54
+    - opencv-python==4.1.2.30
+    - opencv-contrib-python
     - opt-einsum==3.3.0
     - pandas==1.2.4
     - protobuf==3.17.3
@@ -168,4 +170,3 @@ dependencies:
     - urllib3==1.26.5
     - werkzeug==2.0.1
     - wrapt==1.12.1
-prefix: /home/rbync/.conda/envs/cell

@@ -2,7 +2,6 @@ import os
 import torch
 import numpy as np
 from model_io import get_model
-import matplotlib.pyplot as plt
 import skimage.io as sio
 import cv2
 

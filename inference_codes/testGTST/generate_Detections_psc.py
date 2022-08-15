@@ -1,7 +1,6 @@
 import os
 import os.path as osp
 import skimage.io as sio
-import matplotlib.pyplot as plt
 import numpy as np
 from post_processing import persistence_withmarker,postprocess_mask_and_markers,persistence,simple_label
 
