@@ -82,6 +82,20 @@ Use the specific name of the Cell Segmentation and Tracking Challenge dataset in
 ```shell
 bash $dataset.sh
 ```
+For example, training on DIC-C2DH-HeLa:
+
+```shell
+bash DIC-C2DH-HeLa.sh
+```
+Training on single GPU may need to specify cuda devices, for example, in DIC-C2DH-HeLa.sh, using gpu 1, 
+
+```shell
+CUDA_VISIBLE_DEVICES=1 python ../train_unify.py DIC-C2DH-HeLa GT mask ../yml/all_eachcell.yml
+```
+
+Directly run DIC-C2DH-HeLa.sh, the codes will be trained on all gpus. (Current bashsize in our configuration file is a setting for training on one gpu). 
+
+
 
 ### Chaning some training parameters:
 Each bash code runs a training `.py`file placed in the `training_codes` folder. The parameters for the training (epochs, batch size, learning rate etc.) are specified in the `yaml` files that you can find in the `yml` folder. Note that you will need to addapt the value of some of these parameters, such as the batch size, according to your hardware (GPU).
