@@ -65,7 +65,7 @@ mkdir models_imagenet
 ```
 Once the dataset is placed there, it should look like `DMNet_Rina/Data/train/DIC-C2DH-HeLa`
 
-### Training on all the datasets from the Cell Tracking Challenge
+### Training on all the datasets from the Cell Segmentation and Tracking Challenge
 To run the training on all the datasets from the Cell Segmentation and Tracking Challenge, run the six settings "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST" using the `.bash`codes in the folder `generate_bash`:
 
 ```shell
@@ -89,7 +89,7 @@ Each bash code runs a training `.py`file placed in the `training_codes` folder. 
 
 ## Testing
 
-Testing on DIC-C2DH-HeLa dataset 01 sequence.
+For example, testing on DIC-C2DH-HeLa dataset 01 sequence.
 
 ```shell
 cd inference_codes
