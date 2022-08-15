@@ -10,19 +10,17 @@ cells. For multi-object cell tracking we use M2Track tracking-by-detection appro
 </p>
 
 
-# Author
-Rina Bao (ctc682)
-rinabao@mail.missouri.edu
+# Citation
+
 The codes contain the implementations of our below paper, please cite our paper when you are using the codes.
 
-
-@inproceedings{bao2021dmnet,
-  title={DMNet: Dual-Stream Marker Guided Deep Network for Dense Cell Segmentation and Lineage Tracking},
-  author={Bao, Rina and Al-Shakarji, Noor M and Bunyak, Filiz and Palaniappan, Kannappan},
-  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
-  pages={3361--3370},
-  year={2021}
-}
+    @inproceedings{bao2021dmnet,
+    title={DMNet: Dual-Stream Marker Guided Deep Network for Dense Cell Segmentation and Lineage Tracking},
+    author={Bao, Rina and Al-Shakarji, Noor M and Bunyak, Filiz and Palaniappan, Kannappan},
+    booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+    pages={3361--3370},
+    year={2021}
+    }
 
 This codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge
 
@@ -149,6 +147,31 @@ Running all bash files for testing
 
 
 Thanks!
+
+## Contact Information 
+**Created by:** Rina Bao
+
+Department of Electrical Engineering and Computer Science,  
+University of Missouri-Columbia  
+
+For more information, contact:
+
+* **Rina Bao**  
+University of Missouri-Columbia  
+Columbia, MO 65211  
+rinabao@mail.missouri.edu  
+
+* **Noor M. Al-Shakarji**  
+University of Missouri-Columbia  
+Columbia, MO 65211  
+nmahyd@missouri.edu
+
+* **Dr. K. Palaniappan**  
+205 Naka Hall (EBW)  
+University of Missouri-Columbia  
+Columbia, MO 65211  
+pal@missouri.edu
+
 
 
 ## Acknowledgement
