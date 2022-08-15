@@ -89,9 +89,15 @@ Each bash code runs a training `.py`file placed in the `training_codes` folder. 
 
 ## Testing
 
+Testing on DIC-C2DH-HeLa dataset 01 sequence.
+
 ```shell
 cd inference_codes
+bash DIC-C2DH-HeLa-01-GT.sh
 ```
+
+
+
 
 Running all bash files for testing
 
