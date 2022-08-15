@@ -44,6 +44,25 @@ conda activate cell
 ```
 
 
+
+### Running the code in Google Colab
+
+It's popssible to set up the conda environment in Google Colab using the following:
+
+```shell
+!git clone https://github.com/CIVA-Lab/DMNet_Rina.git
+!pip install -q condacolab
+import condacolab
+condacolab.install()
+import os
+os.chdir("/content/DMNet_Rina/training_codes")
+!conda env create -f environment.yml
+!source activate cell
+```
+
+We provide a notebook tutorial for training and testing DMNet, please read the notebook in codalab folder.
+
+
 ## Training
  
 ### Prepare datasets for training
@@ -117,58 +136,6 @@ Running all bash files for testing
 
 
 Thanks!
-
-
-### Running the code in Google Colab
-
-It's popssible to set up the conda environment in Google Colab using the following:
-
-```shell
-!git clone https://github.com/CIVA-Lab/DMNet_Rina.git
-!pip install -q condacolab
-import condacolab
-condacolab.install()
-import os
-os.chdir("/content/DMNet_Rina/training_codes")
-!conda env create -f environment.yml
-!source activate cell
-```
-
-Relative paths sometimes do not work well in conda, so the only thing you need to do to run the training scripts is to change the relative paths in the `yaml` files that you need to use to the full path. For example, change `../training_codes/models_imagenet` to `/content/DMNet_Rina/training_codes/models_imagenet`.
-The same in the corresponding training python script in case there exists any. 
-
-If the training does not work when it is called using `bash`, copy&paste the scripts in the training file directly into the notebook with the correct inputs that are specified in the bash and runn it placing the working directory in `training_codes`. Here is an example:
-
-```python
-import multiprocessing
-#import pandas as pd
-import numpy as np
-import skimage
-import sys
-import os
-os.chdir("/content/DMNet_Rina/training_codes/")
-sol = __import__('solaris_rina')
-
-# Dataset location (edit as needed)
-dataset_namein = "DIC-C2DH-HeLa"
-gttype="GT"
-branch="mask"
-config_path="/content/DMNet_Rina/training_codes/yml/all_eachcell.yml"
-# Load config
-config = sol.utils.config.parse(config_path)
-
-# %% ============================
-# Training
-# ===============================
-
-# make model output dir
-
-os.makedirs(os.path.dirname(config['training']['model_dest_path']), exist_ok=True)
-config['pretrained_rina']=True
-trainer = sol.nets.train_cell_GTST.Trainer(config=config,dataset_name=dataset_namein,branch=branch,GT=gttype)
-
-trainer.train()
-```
 
 
 
