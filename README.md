@@ -172,7 +172,7 @@ trainer.train()
 
 
 
-## COPYRIGHT and Contact Information 
+## Copyright and Contact Information 
 
 Copyright © 2021-2022. Rina Bao and Prof. K. Palaniappan and Curators of the University of Missouri, a public corporation. 
 All Rights Reserved.
