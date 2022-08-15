@@ -172,7 +172,11 @@ trainer.train()
 
 
 
-## Contact Information 
+## COPYRIGHT and Contact Information 
+
+Copyright © 2021-2022. Rina Bao and Prof. K. Palaniappan and Curators of the University of Missouri, a public corporation. 
+All Rights Reserved.
+
 **Created by:** Rina Bao
 
 Department of Electrical Engineering and Computer Science,  
@@ -190,7 +194,7 @@ University of Missouri-Columbia
 Columbia, MO 65211  
 nmahyd@missouri.edu
 
-* **Dr. K. Palaniappan**  
+* **Prof. K. Palaniappan**  
 205 Naka Hall (EBW)  
 University of Missouri-Columbia  
 Columbia, MO 65211  
@@ -199,7 +203,9 @@ pal@missouri.edu
 
 
 ## Acknowledgement
-Pretrained imagenet model is from <a href="https://github.com/HRNet/HRNet-Image-Classification/">HRNet</a>).
+
+Pretrained imagenet model is from <a href="https://github.com/HRNet/HRNet-Image-Classification/">HRNet</a>.
+
 Some codes are modifiled from <a href="https://github.com/CosmiQ/solaris">Solaris</a>).
 
 
