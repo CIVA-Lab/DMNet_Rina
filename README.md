@@ -86,6 +86,19 @@ bash $dataset.sh
 ### Chaning some training parameters:
 Each bash code runs a training `.py`file placed in the `training_codes` folder. The parameters for the training (epochs, batch size, learning rate etc.) are specified in the `yaml` files that you can find in the `yml` folder. Note that you will need to addapt the value of some of these parameters, such as the batch size, according to your hardware (GPU).
 
+
+## Testing
+
+```shell
+cd inference_codes
+```
+
+Running all bash files for testing
+
+
+Thanks!
+
+
 ### Running the code in Google Colab
 
 It's popssible to set up the conda environment in Google Colab using the following:
@@ -137,16 +150,7 @@ trainer = sol.nets.train_cell_GTST.Trainer(config=config,dataset_name=dataset_na
 trainer.train()
 ```
 
-## Testing
 
-```shell
-cd inference_codes
-```
-
-Running all bash files for testing
-
-
-Thanks!
 
 ## Contact Information 
 **Created by:** Rina Bao
