@@ -22,7 +22,7 @@ The codes contain the implementations of our below paper, please cite our paper 
     year={2021}
     }
 
-This codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge
+The codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge
 
 # Instructions
 
