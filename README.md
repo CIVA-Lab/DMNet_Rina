@@ -22,7 +22,6 @@ The codes contain the implementations of our below paper, please cite our paper 
     year={2021}
     }
 
-The codes is for ISBI2021 6th Cell Segmentation and Tracking Challenge
 
 # Instructions
 
@@ -49,7 +48,7 @@ conda activate cell
  
 ### Prepare datasets for training
 
-You cand download the training data in the Cell Tracking Challenge webpage http://celltrackingchallenge.net/2d-datasets/.
+You cand download the training data from the <a href="http://celltrackingchallenge.net/">Cell Segmentation and Tracking Challenge</a>).
 Download any of the training datasets and place them in the folder `DMNet_Rina/Data/train`. For that, you will need to create the `Data`and `train` folder first.
 
 ```shell
@@ -67,7 +66,7 @@ mkdir models_imagenet
 Once the dataset is placed there, it should look like `DMNet_Rina/Data/train/DIC-C2DH-HeLa`
 
 ### Training on all the datasets from the Cell Tracking Challenge
-To run the training on all the datasets from the Cell Tracking Challenge, run the six settings "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST" using the `.bash`codes in the folder `generate_bash`:
+To run the training on all the datasets from the Cell Segmentation and Tracking Challenge, run the six settings "GT", "ST", "GT+ST", "allGT", "allST", "allGT+allST" using the `.bash`codes in the folder `generate_bash`:
 
 ```shell
 cd generate_bash
@@ -75,9 +74,10 @@ bash allGT.sh
 bash allST.sh
 bash allGT+ST.sh
 ```
-### Training on a specific dataset of the Cell Tracking Challenge
+### Training on a specific dataset of the Cell Segmentation and Tracking Challenge
 
-Use the specific name of the Cell Tracking Challenge dataset in the variable `dataset` in the following line:
+
+Use the specific name of the Cell Segmentation and Tracking Challenge dataset in the variable `dataset` in the following line:
 
 ```shell
 bash $dataset.sh
