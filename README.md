@@ -206,7 +206,7 @@ pal@missouri.edu
 
 Pretrained imagenet model is from <a href="https://github.com/HRNet/HRNet-Image-Classification/">HRNet</a>.
 
-Some codes are modifiled from <a href="https://github.com/CosmiQ/solaris">Solaris</a>).
+Some codes are modifiled from <a href="https://github.com/CosmiQ/solaris">solaris</a>.
 
 
 
