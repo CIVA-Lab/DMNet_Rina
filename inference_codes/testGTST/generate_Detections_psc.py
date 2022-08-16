@@ -85,7 +85,7 @@ def get_detection(input_imgpath,save_rina_seg_path,da):
 
 
     for imgp in imglist:
-            print (imgp)
+            print ("detecting cells in ", imgp)
             mask_name="mask"+imgp.split('/')[-1].split('.tif')[0].split('t')[-1]+".tif"
 
             center_pred = center_inferer([imgp,da])
@@ -124,8 +124,7 @@ def get_detection(input_imgpath,save_rina_seg_path,da):
                 center_marker_det=label_renew(center_marker_det)
                 center_marker_det=remote_smallmarker(center_marker_det,area_thresh_all[da][1])
 
-            #plt.imshow(center_marker_det)
-            #plt.show()
+
             if da in ['PhC-C2DH-U373','Fluo-N2DL-HeLa','Fluo-C2DL-MSC']:
                 print ("In remove tiny cell Post Processing", da)
                 center_marker_det=remote_smallmarker(center_marker_det,area_thresh_all[da][1])
@@ -138,7 +137,7 @@ def get_detection(input_imgpath,save_rina_seg_path,da):
             savepp=osp.join(save_rina_seg_path,mask_name)
             #plt.imshow(center_marker_det)
             #plt.show()
-            print ("svae at",savepp)
+            print ("save at",savepp)
 
             sio.imsave(savepp,center_marker_det.astype(np.uint16))
 

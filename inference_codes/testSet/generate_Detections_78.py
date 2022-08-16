@@ -157,10 +157,7 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
 
              mask_model_path = osp.join(path_mask_use, "hrnet_" + model_choose + ".pth")
 
-             # path_center_use=osp.join(model_path,da,"shapemarker",gttype)
              path_center_use = osp.join(model_path, "all", "shapemarker", gttype.split("all")[1])
-
-             # centermarker_model_path  = osp.join(path_center_use,"hr_"+model_choose+"_shapemarker.pth")
 
              centermarker_model_path = osp.join(path_center_use, "hrnet_" + model_choose + ".pth")
 
@@ -168,13 +165,9 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
 
         path_mask_use=osp.join(model_path,da,"mask",gttype)
 
-
         mask_model_path = osp.join(path_mask_use,"hrnet_"+model_choose+".pth")
 
-        #path_center_use=osp.join(model_path,da,"shapemarker",gttype)
         path_center_use=osp.join(model_path,da,"shapemarker",gttype)
-        print ("check center path",path_center_use)
-        #centermarker_model_path  = osp.join(path_center_use,"hr_"+model_choose+"_shapemarker.pth")
 
         centermarker_model_path  = osp.join(path_center_use,"hrnet_"+model_choose+".pth")
 
@@ -184,7 +177,7 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
 
     mask_infer = Inferer_singleimg(model_path=mask_model_path)
     path_imglist=(input_imgpath+"/*.tif")
-    print (path_imglist)
+
     imglist=sorted(glob.glob(path_imglist))
 
 
