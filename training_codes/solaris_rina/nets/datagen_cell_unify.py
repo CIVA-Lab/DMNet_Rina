@@ -66,7 +66,6 @@ def normalize(read_mask):
     read_mask=(read_mask-np.min(read_mask))/(np.max(read_mask)-np.min(read_mask))
     return read_mask
 
-import matplotlib.pyplot as plt
 
 def generate_distmask(read_mask,maxd=20):
     #plt.imshow(read_mask)

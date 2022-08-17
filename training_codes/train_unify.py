@@ -1,8 +1,3 @@
-import multiprocessing
-#import pandas as pd
-import numpy as np
-import skimage
-#import gdal
 import sys
 import os
 sys.path.insert(0, 'solaris_rina')
