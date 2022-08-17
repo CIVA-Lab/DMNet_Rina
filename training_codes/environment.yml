@@ -20,3 +20,4 @@ dependencies:
   - tensorflow-gpu
   - tqdm
   - imgaug
+  - connected-components-3d
