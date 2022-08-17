@@ -4,12 +4,9 @@ import skimage.io as sio
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
-from post_processing_shape import postprocess_mask_and_markers,postprocess_mask_and_watermarkers,simple_label,remove_small_components,regular_norm
-
-
+from post_processing_shape import postprocess_mask_and_markers,postprocess_mask_and_markers_3d,postprocess_mask_and_watermarkers,simple_label,remove_small_components,regular_norm
 
 #area_thresh_all={"BF-C2DL-MuSC":[0,25],"Fluo-N2DL-HeLa":[0,50],"PhC-C2DH-U373":[0,200],"BF-C2DL-HSC":[0,50],"PhC-C2DL-PSC":[50,50],"Fluo-C2DL-MSC":[0,200],"DIC-C2DH-HeLa":[200,0.5*834],"Fluo-N2DH-GOWT1":[0,138]}
-
 
 area_thresh_all={"BF-C2DL-MuSC":[0,25],
                  "Fluo-N2DL-HeLa":[0,50],
@@ -59,7 +56,7 @@ def foi_correction(mask, cell_type):
         E = 25
     else:
         E = 0
-    #print ("!!!!!!!!!!!!!!!!",E)
+
     if len(mask.shape) == 2:
         foi = mask[E:mask.shape[0] - E, E:mask.shape[1] - E]
     else:
@@ -72,8 +69,6 @@ def foi_correction(mask, cell_type):
             mask[mask == id_prediction] = 0
 
     return mask
-
-
 
 
 def remote_smallmarker(img,thresh):
@@ -140,9 +135,6 @@ def get_bestmodel(path_use):
     return mask_model_path
 
 
-#from vis_rina import vis_label,vis_single
-
-
 def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final",vis=0,all=0):
     model_path = "../wdata/ctc/"
 
@@ -154,8 +146,11 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
 
 
         else:
-            path_mask_use = osp.join(model_path, "all", "mask", gttype.split("all")[1])
-            path_center_use = osp.join(model_path, "all", "shapemarker", gttype.split("all")[1])
+            #path_mask_use = osp.join(model_path, "all", "mask", gttype.split("all")[1])
+            #path_center_use = osp.join(model_path, "all", "shapemarker", gttype.split("all")[1])
+
+            path_mask_use = osp.join(model_path, "all", "mask", gttype)
+            path_center_use = osp.join(model_path, "all", "shapemarker", gttype)
 
         mask_model_path = osp.join(path_mask_use, "hrnet_" + model_choose + ".pth")
 
@@ -193,24 +188,16 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
             mask_name="mask"+imgp.split('/')[-1].split('.tif')[0].split('t')[-1]+".tif"
             if da in ['Fluo-C3DL-MDA231','Fluo-N3DH-CE','Fluo-N3DH-CHO']:
                 center_pred_all = center_inferer([imgp,da])
+            else:
+                center_pred_all = center_inferer([imgp,da])
 
             mask_all = mask_infer([imgp,da])
 
-
-            # if da in ['DIC-C2DH-HeLa','Fluo-N2DL-HeLa']:
-            #
-            #     center_marker_det=postprocess_mask_and_markers(mask,center_pred,area_thresh=area_thresh_all[da][1])
-            #
-            # elif da in ['PhC-C2DH-U373','Fluo-C2DL-MSC','Fluo-N2DH-GOWT1','BF-C2DL-MuSC']:
-            #     center_marker_det = simple_label(mask)
-            #
-            # else:
-            #
-            #     center_marker_det=postprocess_mask_and_watermarkers(mask,center_pred,area_thresh=25)
-
             center_marker_det_all=np.zeros_like(mask_all,dtype=np.uint16)
 
-            for tt in range(mask_all.shape[0]):
+            if da in ['Fluo-C3DL-MDA231', 'Fluo-N3DH-CE', 'Fluo-N3DH-CHO', 'Fluo-C3DH-A549', 'Fluo-C3DH-H157']:
+
+              for tt in range(mask_all.shape[0]):
                 mask=mask_all[tt,:,:]
                 #mask=regular_norm(mask)
                 #center_marker_det = simple_label(mask)
@@ -224,8 +211,10 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
 
                     center_marker_det=postprocess_mask_and_markers(mask,center_pred,area_thresh=25)
                 else:
+                    #da in ['Fluo-C3DH-A549','Fluo-C3DH-H157']:
                     center_marker_det = simple_label(mask)
-                #print (np.unique(center_marker_det))
+                    #print (np.unique(center_marker_det))
+
 
                 center_marker_det=foi_correction(center_marker_det,da)
                 center_marker_det_all[tt,:,:]=center_marker_det
@@ -233,10 +222,7 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
                     print ("In remove tiny cell Post Processing", da)
                     center_marker_det = remote_smallmarker(center_marker_det, area_thresh_all[da][1])
                     center_marker_det_all[tt, :, :]=center_marker_det
-
-                #if da in ['PhC-C2DH-U373', 'Fluo-N2DL-HeLa', 'Fluo-C2DL-MSC','Fluo-N2DH-GOWT1']:
-                #     print ("In remove tiny cell Post Processing", da)
-                #     center_marker_det=remote_smallmarker(center_marker_det,area_thresh_all[da][1])
+                vis=0
                 if vis:
                     #vis_mask=vis_single(mask)
                     #vis_center=vis_single(center)
@@ -248,57 +234,28 @@ def get_detection(input_imgpath,save_rina_seg_path,da,gttype,model_choose="final
                     #print (np.unique(center_marker_det))
                     #if np.sum(center_marker_det)>1:
 
-                    #plt.imshow(np.concatenate([mask,center_pred],1))
+                    plt.imshow(np.concatenate([mask,center_pred,center_marker_det],1))
                     #plt.show()
                     #plt.imshow(center_pred)
                     #plt.show()
-                    plt.imshow(center_marker_det)
-                    plt.show()
+                    #plt.imshow(center_marker_det)
+                    #plt.show()
+                    savepp_t = osp.join(save_rina_seg_path, mask_name+str(tt)+".png")
 
-            # watercenter=simple_label(center_pred*128)
-            #
-            # if da in ['DIC-C2DH-HeLa']:
-            #     watercenter=remote_smallmarker(watercenter,thresh=area_thresh_all[da][0])
-            #     print ("In remote tiny marker Post Processing", da)
-            #
-            # if da in ['BF-C2DL-MuSC','BF-C2DL-HSC','Phc-C2DH-PSC','Fluo-N2DH-GOWT1','Fluo-N2DL-HeLa']:
-            #         reconstruction_mask = reconstruction(1. * (center_pred > 0), 1. * (mask > 0)+1. * (center_pred > 0),offset=None)
-            #
-            #         print ("In Marker Post Processing", da)
-            #         center_marker_det=persistence_withmarker(mask,watercenter)
-            #         plt.imshow(watercenter)
-            #         plt.show()
-            #         #center_marker_det = persistence_withmarker(mask, watercenter)
-            #
-            # else:
-            #     # from skimage.morphology import reconstruction
-            #     if da in ['PhC-C2DH-U373','Fluo-C2DL-MSC']:
-            #         center_marker_det = simple_label(mask)
-            #         print ("In Marker Mask Processing", da)
-            #
-            #
-            #     else:
-            #         print ("In Marker Mask Processing", da)
-            #
-            #         center_marker_det = persistence_withmarker(mask, watercenter)
-            #         #plt.imshow(center_marker_det)
-            #         #plt.show()
-            # if da in ['DIC-C2DH-HeLa']:
-            #     print ("In remove tiny cell Post Processing", da)
-            #     center_marker_det=label_renew(center_marker_det)
-            #     center_marker_det=remote_smallmarker(center_marker_det,area_thresh_all[da][1])
-            #
-            # #plt.imshow(center_marker_det)
-            # #plt.show()
-            # if da in ['PhC-C2DH-U373','Fluo-N2DL-HeLa','Fluo-C2DL-MSC']:
-            #     print ("In remove tiny cell Post Processing", da)
-            #     center_marker_det=remote_smallmarker(center_marker_det,area_thresh_all[da][1])
-            #
-            # if 'BF' in da:
-            #     mask = np.zeros_like(center_marker_det)
-            #     mask[25:-25, 25:-25] = 1
-            #     center_marker_det=center_marker_det*mask
+                    plt.savefig(savepp_t)
 
+            else:
+              center_marker_det_all = postprocess_mask_and_markers_3d(mask_all, center_pred_all, area_thresh=25)
+              for tt in range(center_marker_det_all.shape[0]):
+                        plt.imshow(np.concatenate([mask_all[tt,:,:], center_pred_all[tt,:,:], center_marker_det_all[tt,:,:]], 1))
+                        # plt.show()
+                        # plt.imshow(center_pred)
+                        # plt.show()
+                        # plt.imshow(center_marker_det)
+                        # plt.show()
+                        savepp_t = osp.join(save_rina_seg_path, mask_name + str(tt) + ".png")
+
+                        plt.savefig(savepp_t)
 
             savepp=osp.join(save_rina_seg_path,mask_name)
             #plt.imshow(center_marker_det)
