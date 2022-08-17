@@ -114,6 +114,7 @@ dependencies:
     - click-plugins==1.1.1
     - cligj==0.7.2
     - cycler==0.10.0
+    - connected-components-3d
     - decorator==4.4.2
     - fiona==1.8.20
     - flatbuffers==1.12
