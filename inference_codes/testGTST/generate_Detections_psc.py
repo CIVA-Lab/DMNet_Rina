@@ -114,10 +114,19 @@ def get_detection(input_imgpath,save_rina_seg_path,da):
 
                     #plt.imshow(center_marker_det)
                     #plt.show()
-                else:
+                elif da in ['DIC-C2DH-HeLa']:
                     print ("In Marker Mask Processing", da)
 
                     center_marker_det = persistence_withmarker(mask, watercenter)
+                else:
+                    print("testing on new dataset")
+                    # mask = regular_norm(maskb)
+
+                    center_pred = center_inferer([imgp, da])
+                    # center_pred = regular_norm(center_pred)
+
+                    center_marker_det = postprocess_mask_and_markers(mask, center_pred,
+                                                                     area_thresh=50)
 
             if da in ['DIC-C2DH-HeLa']:
                 print ("In remove tiny cell Post Processing", da)
