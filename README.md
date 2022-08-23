@@ -68,7 +68,7 @@ We provide a notebook tutorial for training and testing DMNet, please read the n
 ### Prepare datasets for training
 
 You cand download the training data from the <a href="http://celltrackingchallenge.net/">Cell Segmentation and Tracking Challenge</a>).
-Download any of the training datasets and place them in the folder `DMNet_Rina/training_codes/Data/train`. For that, you will need to create the `Data`and `train` folder first.
+Download any of the training datasets and place it in the folder `DMNet_Rina/training_codes/Data/train`. For that, you will need to create the `Data`and `train` folder first.
 
 ```shell
 mkdir "DMNet_Rina/training_codes/Data"
