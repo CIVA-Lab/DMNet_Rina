@@ -1,7 +1,7 @@
 
 # Colab tutorial
 
-We provide a colab running tutorial.
+We provide a colab running tutorial. Please read and run the DMNet_colab.ipynb.
 
 
 There are two streams in the DMNet: mask stream and marker stream
