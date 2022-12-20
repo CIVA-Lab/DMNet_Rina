@@ -1,5 +1,6 @@
 # DMNet: Dual-Stream Marker Guided Deep Network for Dense Cell Segmentation and Lineage Tracking
 Paper link: <a href="https://openaccess.thecvf.com/content/ICCV2021W/CVAMD/html/Bao_DMNet_Dual-Stream_Marker_Guided_Deep_Network_for_Dense_Cell_Segmentation_ICCVW_2021_paper.html">DMNet</a>
+
 Accurate segmentation and tracking of cells in microscopy image sequences is extremely beneficial in clinical diagnostic applications and biomedical research. A continuing challenge is the segmentation of dense touching cells and deforming cells with indistinct boundaries,
 in low signal-to-noise-ratio images. In this paper, we present a dual-stream marker-guided network (DMNet) for segmentation of touching cells in microscopy videos of many cell types. DMNet uses an explicit cell markerdetection stream, with a separate mask-prediction stream
 using a distance map penalty function, which enables supervised training to focus attention on touching and nearby
